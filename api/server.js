@@ -11,7 +11,7 @@ app.use(function(req, res, next) {
   next()
 })
 
-app.get('/api/getData', (req, res) => {
+app.get('/api/usage', (req, res) => {
   fs.readFile('./data.json', "utf8", (err, data) => {
     if (err) {
       console.log("File read failed:", err);
@@ -19,7 +19,7 @@ app.get('/api/getData', (req, res) => {
     }
     try {
       const parsedData = JSON.parse(data);
-      res.json(parsedData.slice(0, 5))
+      res.json(parsedData.slice(0, req.query.numberOfUsers))
     } catch (err) {
       console.log("Error parsing JSON string:", err);
     }

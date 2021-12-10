@@ -5,7 +5,7 @@ import { LineChart, Line, XAxis, YAxis, ResponsiveContainer } from 'recharts';
 
 function List() {
   const [data] = useFetch(
-    'http://localhost:8000/api/getData'
+    'http://localhost:8000/api/usage?numberOfUsers=10'
   )
 
   const getUsageValue = (data) => {
