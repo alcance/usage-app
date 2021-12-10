@@ -19,7 +19,6 @@ app.get('/api/getData', (req, res) => {
     }
     try {
       const parsedData = JSON.parse(data);
-      console.log("data", parsedData); // => "Customer address is: Infinity Loop Drive"
       res.json(parsedData.slice(0, 5))
     } catch (err) {
       console.log("Error parsing JSON string:", err);
