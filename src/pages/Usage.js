@@ -9,7 +9,6 @@ function List() {
   )
 
   const getUsageValue = (data) => {
-    console.log(data.usage[0].seconds)
     return data.usage[0].seconds
   }
 

@@ -26,6 +26,22 @@ app.get('/api/usage', (req, res) => {
   })
 })
 
+app.post('/api/notes', (req, res) => {
+  fs.readFile('./data.json', "utf8", (err, data) => {
+    if (err) {
+      console.log("File read failed:", err);
+      return;
+    }
+    try {
+      fs.writeFile('/data.json', req.body, 'utf8', () => {
+        res.json('Note added to user succesfully.')
+      }); 
+    } catch (err) {
+      console.log("Error parsing JSON string:", err);
+    }
+  })
+})
+
 // Run server
 app.listen(8000, () => {
   console.log(`Listening on port ${8000}`)
