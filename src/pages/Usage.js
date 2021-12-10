@@ -12,8 +12,8 @@ function List() {
       <h1>Usage History</h1>
       {data.map((item) => {
         return (
-          <div key={item}>
-            {item}
+          <div key={item.uuid}>
+            {item.firstName}
           </div>
         )
       })}

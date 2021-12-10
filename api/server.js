@@ -1,4 +1,5 @@
 const express = require('express')
+const fs = require('fs')
 
 const app = express()
 
@@ -11,9 +12,19 @@ app.use(function(req, res, next) {
 })
 
 app.get('/api/getData', (req, res) => {
-  const data = ['a', 'b', 'c']
-  res.json(data)
-  console.log('All data', data)
+  fs.readFile('./data.json', "utf8", (err, data) => {
+    if (err) {
+      console.log("File read failed:", err);
+      return;
+    }
+    try {
+      const parsedData = JSON.parse(data);
+      console.log("data", parsedData); // => "Customer address is: Infinity Loop Drive"
+      res.json(parsedData.slice(0, 5))
+    } catch (err) {
+      console.log("Error parsing JSON string:", err);
+    }
+  })
 })
 
 // Run server
