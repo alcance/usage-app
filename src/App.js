@@ -1,4 +1,5 @@
 import './App.css';
+import Usage from './pages/Usage'
 
 function App() {
   return (
@@ -6,6 +7,7 @@ function App() {
       <header className="App-header">
         Usage        
       </header>
+      <Usage />
     </div>
   );
 }

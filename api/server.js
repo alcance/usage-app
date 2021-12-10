@@ -10,6 +10,12 @@ app.use(function(req, res, next) {
   next()
 })
 
+app.get('/api/getData', (req, res) => {
+  const data = ['a', 'b', 'c']
+  res.json(data)
+  console.log('All data', data)
+})
+
 // Run server
 app.listen(8000, () => {
   console.log(`Listening on port ${8000}`)
